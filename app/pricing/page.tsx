@@ -1,4 +1,4 @@
-import { title } from "@/components/primitives";
+import { title } from "@/components/others/primitives";
 
 export default function PricingPage() {
 	return (

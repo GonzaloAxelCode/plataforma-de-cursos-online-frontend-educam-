@@ -1,18 +1,18 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import localFont from 'next/font/local';
 import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/link";
-import clsx from "clsx";
-
 export const metadata: Metadata = {
-	title: {
-		default: siteConfig.name,
-		template: `%s - ${siteConfig.name}`,
-	},
-	description: siteConfig.description,
+	//	title: {
+	//default: siteConfig.name,
+	//		template: `%s - ${siteConfig.name}`,
+
+	//},
+	title: "Educam - Academia de Programación",
+
+	description:
+		'Cursos interactivos y de alta calidad para aprender Programacion. Únete a nuestra academia y transforma tu carrera en programación, sin importar tu nivel de experiencia.',
+
 	themeColor: [
 		{ media: "(prefers-color-scheme: light)", color: "white" },
 		{ media: "(prefers-color-scheme: dark)", color: "black" },
@@ -24,6 +24,63 @@ export const metadata: Metadata = {
 	},
 };
 
+const font = localFont({
+	src: [
+		{
+			path: '../styles/fonts/circular/CircularStd-Book.woff',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-BookItalic.woff',
+			weight: '400',
+			style: 'italic',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-Medium.woff',
+			weight: '500',
+			style: 'normal',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-MediumItalic.woff',
+			weight: '500',
+			style: 'italic',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-Bold.woff',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-BoldItalic.woff',
+			weight: '700',
+			style: 'italic',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-Light.woff',
+			weight: '300',
+			style: 'normal',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-Light-Italic.woff',
+			weight: '300',
+			style: 'italic',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-Black.woff',
+			weight: '900',
+			style: 'normal',
+		},
+		{
+			path: '../styles/fonts/circular/CircularStd-BlackItalic.woff',
+			weight: '900',
+			style: 'italic',
+		},
+	],
+});
+
+
+
 export default function RootLayout({
 	children,
 }: {
@@ -32,31 +89,8 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
-			<body
-				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
-					fontSans.variable
-				)}
-			>
-				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div className="relative flex flex-col h-screen">
-						<Navbar />
-						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-							{children}
-						</main>
-						<footer className="w-full flex items-center justify-center py-3">
-							<Link
-								isExternal
-								className="flex items-center gap-1 text-current"
-								href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-								title="nextui.org homepage"
-							>
-								<span className="text-default-600">Powered by</span>
-								<p className="text-primary">NextUI</p>
-							</Link>
-						</footer>
-					</div>
-				</Providers>
+			<body className={font.className}>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);
