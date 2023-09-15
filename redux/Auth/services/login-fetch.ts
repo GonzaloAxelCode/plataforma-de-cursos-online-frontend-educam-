@@ -1,9 +1,8 @@
 import { responseServiceState } from "@/utils/fetch-interfaces";
-import { UserRegisterData } from "../interfaces/register.models";
+import { DataUserLogin } from "../interfaces/register.models";
 
-const registerFetch = async (user: UserRegisterData) => {
-  const res = await fetch("/api/register", {
-    // Esta es la ruta de tu manejador de registro
+const loginFetch = async (user: DataUserLogin) => {
+  const res = await fetch("/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,4 +28,4 @@ const registerFetch = async (user: UserRegisterData) => {
   }
 };
 
-export default registerFetch;
+export default loginFetch;

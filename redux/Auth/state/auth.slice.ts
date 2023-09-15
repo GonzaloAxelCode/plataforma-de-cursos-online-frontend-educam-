@@ -1,33 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AuthStateType } from "../interfaces/auth.models";
 
-
-
 export const AuthState: AuthStateType = {
-
-    errorsRegister: {
-        detail: "",
-    },
-    isLoadingRegister: false,
-
+  errorsRegister: {
+    detail: "",
+  },
+  isLoadingRegister: false,
+  isLoadingLogin: false,
+  loginErrors: {},
 };
 
 const createReducer = (
-    state: AuthStateType,
-    action: { payload: AuthStateType }
+  state: AuthStateType,
+  action: { payload: AuthStateType }
 ) => ({
-    ...state,
-    ...action.payload,
+  ...state,
+  ...action.payload,
 });
 
 const AuthSlice = createSlice({
-    name: "register",
-    initialState: AuthState,
-    reducers: {
-        signupReducer: createReducer
-    },
+  name: "register",
+  initialState: AuthState,
+  reducers: {
+    signupReducer: createReducer,
+    signInReducer: createReducer,
+  },
 });
 
-export const { signupReducer } = AuthSlice.actions;
+export const { signupReducer, signInReducer } = AuthSlice.actions;
 
 export default AuthSlice.reducer;

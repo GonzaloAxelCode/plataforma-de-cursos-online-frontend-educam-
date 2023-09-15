@@ -3,12 +3,15 @@ import registerFetch from "../services/register-fetch";
 import { signupReducer } from "../state/auth.slice";
 
 export default async function signUp(user: UserRegisterData, dispatch: any) {
-  const { isSuccess, errors } = await registerFetch(user);
+  
   dispatch(
     signupReducer({
       isLoadingRegister: true,
     })
   );
+  const { isSuccess, errors } = await registerFetch(user);
+  
+  
   if (isSuccess) {
     dispatch(
       signupReducer({

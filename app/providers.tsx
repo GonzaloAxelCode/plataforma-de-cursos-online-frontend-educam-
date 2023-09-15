@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { store } from '@/config/redux/store';
 import { NextUIProvider } from "@nextui-org/system";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import * as React from "react";
 import { Provider } from "react-redux";
@@ -22,7 +21,9 @@ export function Providers({ children, themeProps }: ProvidersProps) {
         <Provider store={store}>
             <NextUIProvider>
                 <SessionProvider>
-                    <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
+
+                    {children}
+
                 </SessionProvider>
             </NextUIProvider>
         </Provider>

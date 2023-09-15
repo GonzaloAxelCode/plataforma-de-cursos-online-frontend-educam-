@@ -1,3 +1,4 @@
+"use client"
 import { Link } from "@nextui-org/link";
 import {
 	NavbarBrand,
@@ -14,6 +15,7 @@ import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import clsx from "clsx";
 import NextLink from "next/link";
+
 
 import {
 	DiscordIcon,

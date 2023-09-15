@@ -19,7 +19,7 @@ export const postFetch = async (
       ...config,
       cancelToken: source.token,
     });
-    if (response.status == 201) {
+    if (response.status == 201   || response.status == 200) {
       return {
         ...responseServiceState,
         HTTPstatus: response.status,

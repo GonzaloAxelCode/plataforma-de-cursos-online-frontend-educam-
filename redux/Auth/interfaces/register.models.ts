@@ -9,17 +9,19 @@ export interface UserAuthRegister {
 
 export interface RegisterErrors {
   detail?: string;
+  first_name?: string[];
+  last_name?: string[];
   email?: string[];
   password?: string[];
   re_password?: string[];
-  nickname?: string[];
+  username?: string[];
   non_field_errors?: string[];
   token?: string[];
 }
 
 export interface UserRegisterData {
-  firstName?: string;
-  lastName?: string;
+  first_name?: string;
+  last_name?: string;
   email: string;
   username: string;
   password: string;
@@ -39,4 +41,9 @@ export interface DataResponseFetch {
   state?: number;
   isSuccess?: boolean;
   errors?: RegisterErrors;
+}
+
+export interface DataUserLogin {
+  email?: string;
+  password?: string;
 }
