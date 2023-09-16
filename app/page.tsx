@@ -21,9 +21,7 @@ export default function Home() {
 							<div className="mt-3">
 								<div>
 									<a href="#" className="inline-flex space-x-4">
-										<span className="rounded bg-indigo-50 px-2.5 py-1 text-sm font-semibold text-indigo-600">
-											Nueva Version
-										</span>
+
 										<span className="inline-flex items-center space-x-1 text-sm font-medium text-indigo-600">
 											<span>Version 0.1.0</span>
 											<ChevronRightIcon className="h-5 w-5" aria-hidden="true" />

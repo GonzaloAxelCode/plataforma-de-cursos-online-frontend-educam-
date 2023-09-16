@@ -4,10 +4,10 @@ import { DataUserLogin } from "../interfaces/register.models";
 import { loginUseCase } from "../usecases/login";
 
 const useLogin = () => {
-    
+
   const dispatch = useDispatch();
 
-  const { loginErrors, isLoadingLogin } = useSelector(
+  const { loginErrors, loginSuccess,isLoadingLogin } = useSelector(
     (state: RootState) => state.Auth
   );
   const loginWithEmail = async (user: DataUserLogin) => {
@@ -18,6 +18,7 @@ const useLogin = () => {
     isLoadingLogin,
     loginWithEmail,
     loginErrors,
+    loginSuccess
   };
 };
 

@@ -3,7 +3,7 @@ import { Button, extendVariants } from "@nextui-org/react";
 
 export const MyButton = extendVariants(Button, {
     variants: {
-        // <- modify/add variants
+
         color: {
             olive: "text-[#000] bg-[#84cc16]",
             orange: "bg-[#ff8c00] text-[#fff]",
@@ -19,11 +19,11 @@ export const MyButton = extendVariants(Button, {
         },
     },
 
-    defaultVariants: { // <- modify/add default variants
+    defaultVariants: {
         color: "olive",
         size: "xl",
     },
-    compoundVariants: [ // <- modify/add compound variants
+    compoundVariants: [
         {
             isDisabled: true,
             color: "olive",

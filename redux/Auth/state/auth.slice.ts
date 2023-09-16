@@ -5,9 +5,13 @@ export const AuthState: AuthStateType = {
   errorsRegister: {
     detail: "",
   },
+  user: {},
   isLoadingRegister: false,
   isLoadingLogin: false,
   loginErrors: {},
+  activateErrors: {},
+  isLoadingActivateAccount: false,
+  loginSuccess: false,
 };
 
 const createReducer = (
@@ -24,9 +28,11 @@ const AuthSlice = createSlice({
   reducers: {
     signupReducer: createReducer,
     signInReducer: createReducer,
+    activateAccountReducer: createReducer,
   },
 });
 
-export const { signupReducer, signInReducer } = AuthSlice.actions;
+export const { signupReducer, signInReducer, activateAccountReducer } =
+  AuthSlice.actions;
 
 export default AuthSlice.reducer;
